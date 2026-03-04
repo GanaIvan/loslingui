@@ -1,0 +1,3 @@
+:root { --fondo: black; --boton-comprar: #560595; --sombra: #9A7C9E; --claro: #084686; --oscuro: #084686; --primary: #efb810; --secondary: green; --bg: black; --gradient: #fafafa; }
+.progress, .progress-stacked { background-color: rgb(209, 15, 0) !important; }
+.progress-bar { overflow: visible !important; }

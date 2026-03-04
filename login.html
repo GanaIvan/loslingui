@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Admin - Los Lingui</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100" style="background:#f0f0f0;">
+
+  <div class="card p-4" style="width: 320px;">
+    <h4 class="text-center mb-3">Admin Login</h4>
+
+    <input type="email" id="login-email" class="form-control mb-2" placeholder="Correo">
+    <input type="password" id="login-password" class="form-control mb-2" placeholder="Contraseña">
+    <button class="btn btn-primary w-100" onclick="loginAdmin()">Ingresar</button>
+
+    <p id="login-error" class="text-danger mt-2" style="font-size:14px;"></p>
+  </div>
+
+  <!-- Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAe0kZnp_tx1r1tH2q0djTZHSH9X5rhwws",
+      authDomain: "loslingui-46cb7.firebaseapp.com",
+      projectId: "loslingui-46cb7",
+      storageBucket: "loslingui-46cb7.firebasestorage.app",
+      messagingSenderId: "53419854784",
+      appId: "1:53419854784:web:b5fec42a59bd2f9afb9625"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    window.loginAdmin = async function() {
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+      const errorEl = document.getElementById("login-error");
+
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        errorEl.textContent = "";
+        alert("Login exitoso ✅");
+        // Redirigir al panel admin
+        window.location.href = "admin.html"; 
+      } catch (err) {
+        console.error(err);
+        errorEl.textContent = err.message;
+      }
+    }
+
+    // Mantener sesión
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log("Usuario logueado:", user.email);
+        window.location.href = "admin.html"; // si ya estaba logueado
+      }
+    });
+  </script>
+
+</body>
+</html>

