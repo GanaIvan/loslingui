@@ -156,4 +156,40 @@
                 font-size: 13px !important;
             }
         }
-    
+
+
+
+.header-top{
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.main-title{
+    color: white;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.header-img{
+    width: 100%;
+    max-width: 900px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* responsive */
+@media (max-width:768px){
+
+    .main-title{
+        font-size:1.6rem;
+    }
+
+    .header-img{
+        height: 200px;
+    }
+
+}
