@@ -46,6 +46,14 @@
   <div class="card">
     <h2>Editar Método 11</h2>
 
+
+
+    <label>Título de la Imagen:</label>
+<input type="text" id="tituloImagen">
+
+<label>URL de la Imagen:</label>
+<input type="text" id="urlImagen">
+
     <label>Título:</label>
     <input type="text" id="titulo">
 
@@ -83,109 +91,140 @@
 </main>
 
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
-  import { getFirestore, doc, getDoc, updateDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
-  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import { getFirestore, doc, getDoc, updateDoc, setDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAe0kZnp_tx1r1tH2q0djTZHSH9X5rhwws",
-    authDomain: "loslingui-46cb7.firebaseapp.com",
-    projectId: "loslingui-46cb7",
-    storageBucket: "loslingui-46cb7.firebasestorage.app",
-    messagingSenderId: "53419854784",
-    appId: "1:53419854784:web:b5fec42a59bd2f9afb9625"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyAe0kZnp_tx1r1tH2q0djTZHSH9X5rhwws",
+  authDomain: "loslingui-46cb7.firebaseapp.com",
+  projectId: "loslingui-46cb7",
+  storageBucket: "loslingui-46cb7.firebasestorage.app",
+  messagingSenderId: "53419854784",
+  appId: "1:53419854784:web:b5fec42a59bd2f9afb9625"
+};
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  const auth = getAuth(app);
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
 
-  // ----- Verificar login -----
-  onAuthStateChanged(auth, user => {
-    if (!user) {
-      window.location.href = "login.html"; // redirige si no está logueado
-    }
-  });
-
-  // ----- Admin Metodo 11 -----
-  const tituloInput = document.getElementById("titulo");
-  const bancoInput = document.getElementById("banco");
-  const ciInput = document.getElementById("ci");
-  const tlfInput = document.getElementById("tlf");
-  const status = document.getElementById("status");
-  const guardarBtn = document.getElementById("guardar");
-
-  async function cargarMetodo11() {
-    const docRef = doc(db, "metodos_pago", "metodo_11");
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      const data = docSnap.data();
-      tituloInput.value = data.titulo || "";
-      bancoInput.value = data.banco || "";
-      ciInput.value = data.ci || "";
-      tlfInput.value = data.tlf || "";
-    } else {
-      status.textContent = "❌ Documento metodo_11 no encontrado";
-    }
-  }
-
-  guardarBtn.addEventListener("click", async () => {
-    const docRef = doc(db, "metodos_pago", "metodo_11");
-    try {
-      await updateDoc(docRef, {
-        titulo: tituloInput.value.trim(),
-        banco: bancoInput.value.trim(),
-        ci: ciInput.value.trim(),
-        tlf: tlfInput.value.trim()
-      });
-      status.textContent = "✅ Cambios guardados correctamente";
-    } catch (error) {
-      console.error("Error guardando cambios:", error);
-      status.textContent = "❌ Error al guardar cambios";
-    }
-  });
-
-  // ----- Tabla Usuarios Compras -----
-  const tablaBody = document.querySelector("#tablaCompras tbody");
-
-  async function cargarUsuariosCompras() {
-    tablaBody.innerHTML = ""; // Limpiar tabla
-    try {
-      const querySnapshot = await getDocs(collection(db, "usuarios_compras"));
-      if (querySnapshot.empty) {
-        tablaBody.innerHTML = `<tr><td colspan="6">No hay datos de compras</td></tr>`;
-        return;
-      }
-      querySnapshot.forEach(doc => {
-        const data = doc.data();
-        const fila = document.createElement("tr");
-        fila.innerHTML = `
-          <td>${data.cedula || ""}</td>
-          <td>${data.nombre || ""}</td>
-          <td>${data.correo || ""}</td>
-          <td>${data.telefono || ""}</td>
-          <td>${data.referencia || ""}</td>
-          <td>${data.creado_en || ""}</td>
-        `;
-        tablaBody.appendChild(fila);
-      });
-    } catch (error) {
-      console.error("Error cargando usuarios_compras:", error);
-      tablaBody.innerHTML = `<tr><td colspan="6">❌ Error al cargar los datos</td></tr>`;
-    }
-  }
-
-  // ----- Cerrar Sesión -----
-  const logoutBtn = document.getElementById("logout");
-  logoutBtn.addEventListener("click", async () => {
-    await signOut(auth);
+// ----- Verificar login -----
+onAuthStateChanged(auth, user => {
+  if (!user) {
     window.location.href = "login.html";
-  });
+  }
+});
 
-  document.addEventListener("DOMContentLoaded", () => {
-    cargarMetodo11();
-    cargarUsuariosCompras();
-  });
+// ----- Inputs -----
+const tituloInput = document.getElementById("titulo");
+const bancoInput = document.getElementById("banco");
+const ciInput = document.getElementById("ci");
+const tlfInput = document.getElementById("tlf");
+const status = document.getElementById("status");
+const guardarBtn = document.getElementById("guardar");
+
+const tituloImagenInput = document.getElementById("tituloImagen");
+const urlImagenInput = document.getElementById("urlImagen");
+
+// ----- Cargar Metodo 11 -----
+async function cargarMetodo11() {
+  const docRef = doc(db, "metodos_pago", "metodo_11");
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+    const data = docSnap.data();
+    tituloInput.value = data.titulo || "";
+    bancoInput.value = data.banco || "";
+    ciInput.value = data.ci || "";
+    tlfInput.value = data.tlf || "";
+  } else {
+    status.textContent = "❌ Documento metodo_11 no encontrado";
+  }
+}
+
+// ----- Cargar Banner -----
+async function cargarBanner() {
+  const docRef = doc(db, "banner", "config");  // <-- aquí va 'config'
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+    const data = docSnap.data();
+    tituloImagenInput.value = data.titulo || "";
+    urlImagenInput.value = data.imagen || "";
+  } else {
+    tituloImagenInput.value = "";
+    urlImagenInput.value = "";
+    status.textContent = "⚠️ Documento banner/config no existe, se creará al guardar";
+  }
+}
+
+// ----- Guardar cambios -----
+guardarBtn.addEventListener("click", async () => {
+  try {
+    // Guardar metodo_11
+    const metodoRef = doc(db, "metodos_pago", "metodo_11");
+    await updateDoc(metodoRef, {
+      titulo: tituloInput.value.trim(),
+      banco: bancoInput.value.trim(),
+      ci: ciInput.value.trim(),
+      tlf: tlfInput.value.trim()
+    });
+
+    // Guardar banner/config (crear si no existe)
+    const bannerRef = doc(db, "banner", "config");
+    await setDoc(bannerRef, {
+      titulo: tituloImagenInput.value.trim(),
+      imagen: urlImagenInput.value.trim()
+    }, { merge: true });
+
+    status.textContent = "✅ Cambios guardados correctamente";
+  } catch (error) {
+    console.error("Error guardando cambios:", error);
+    status.textContent = "❌ Error al guardar cambios";
+  }
+});
+
+// ----- Tabla Usuarios Compras -----
+const tablaBody = document.querySelector("#tablaCompras tbody");
+
+async function cargarUsuariosCompras() {
+  tablaBody.innerHTML = "";
+  try {
+    const querySnapshot = await getDocs(collection(db, "usuarios_compras"));
+    if (querySnapshot.empty) {
+      tablaBody.innerHTML = `<tr><td colspan="6">No hay datos de compras</td></tr>`;
+      return;
+    }
+    querySnapshot.forEach(doc => {
+      const data = doc.data();
+      const fila = document.createElement("tr");
+      fila.innerHTML = `
+        <td>${data.cedula || ""}</td>
+        <td>${data.nombre || ""}</td>
+        <td>${data.correo || ""}</td>
+        <td>${data.telefono || ""}</td>
+        <td>${data.referencia || ""}</td>
+        <td>${data.creado_en || ""}</td>
+      `;
+      tablaBody.appendChild(fila);
+    });
+  } catch (error) {
+    console.error("Error cargando usuarios_compras:", error);
+    tablaBody.innerHTML = `<tr><td colspan="6">❌ Error al cargar los datos</td></tr>`;
+  }
+}
+
+// ----- Cerrar Sesión -----
+const logoutBtn = document.getElementById("logout");
+logoutBtn.addEventListener("click", async () => {
+  await signOut(auth);
+  window.location.href = "login.html";
+});
+
+// ----- Iniciar -----
+document.addEventListener("DOMContentLoaded", () => {
+  cargarMetodo11();
+  cargarBanner();
+  cargarUsuariosCompras();
+});
 </script>
 
 </body>
