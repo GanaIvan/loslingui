@@ -27,7 +27,20 @@
     
   <body class="" style="padding-right: 0px;">
     
-                                                                                <!-- Google Tag Manager (noscript) -->
+                               
+    
+    <!-- Header con título e imagen -->
+<!-- Header con título e imagen -->
+<div class="container-fluid text-center header-top">
+  <h1 class="main-title" id="bannerTitulo">LOS LINGUI</h1>
+  <img src="assets/img/banner.jpg" class="img-fluid header-img" id="bannerImg" alt="Banner">
+</div>
+    
+    
+    
+    
+    
+    <!-- Google Tag Manager (noscript) -->
 
 <!-- End Google Tag Manager (noscript) -->
                             <div class="wpb-content--blank">
@@ -452,6 +465,56 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
+
+
+
+
+
+
+
+
+// Función para cargar el banner desde Firestore
+async function cargarBanner() {
+  try {
+    const docRef = doc(db, "banner", "config");  // Ruta: banner/config
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.exists()) {
+      console.log("Documento banner/config no encontrado");
+      return;
+    }
+
+    const data = docSnap.data();
+
+    // Actualizamos título e imagen en el HTML
+    const titulo = data.titulo || "Título por defecto";
+    const imagen = data.imagen || "assets/img/banner.jpg";
+
+    const bannerTitulo = document.getElementById("bannerTitulo");
+    if (bannerTitulo) bannerTitulo.textContent = titulo;
+
+    const bannerImg = document.querySelector(".header-img");
+    if (bannerImg) bannerImg.src = imagen;
+
+    console.log("Banner cargado correctamente:", titulo, imagen);
+
+  } catch (error) {
+    console.error("Error cargando banner:", error);
+  }
+}
+
+// Ejecutamos la función al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+  cargarBanner();
+});
+
+
+
+
+
+
+
 
 // Función para obtener datos del formulario
 function obtenerDatosUsuario() {
