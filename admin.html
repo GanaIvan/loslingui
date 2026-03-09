@@ -66,6 +66,9 @@
     <label>Teléfono:</label>
     <input type="text" id="tlf">
 
+    <label>Precio / Tasa:</label>
+<input type="text" id="currency_tasa">
+
     <button id="guardar">Guardar Cambios</button>
     <p class="status" id="status"></p>
   </div>
@@ -122,6 +125,7 @@ const ciInput = document.getElementById("ci");
 const tlfInput = document.getElementById("tlf");
 const status = document.getElementById("status");
 const guardarBtn = document.getElementById("guardar");
+const tasaInput = document.getElementById("currency_tasa");
 
 const tituloImagenInput = document.getElementById("tituloImagen");
 const urlImagenInput = document.getElementById("urlImagen");
@@ -136,6 +140,7 @@ async function cargarMetodo11() {
     bancoInput.value = data.banco || "";
     ciInput.value = data.ci || "";
     tlfInput.value = data.tlf || "";
+    tasaInput.value = data.currency_tasa || "";
   } else {
     status.textContent = "❌ Documento metodo_11 no encontrado";
   }
@@ -165,7 +170,8 @@ guardarBtn.addEventListener("click", async () => {
       titulo: tituloInput.value.trim(),
       banco: bancoInput.value.trim(),
       ci: ciInput.value.trim(),
-      tlf: tlfInput.value.trim()
+      tlf: tlfInput.value.trim(),
+      currency_tasa: tasaInput.value.trim()
     });
 
     // Guardar banner/config (crear si no existe)
